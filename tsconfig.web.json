@@ -7,8 +7,8 @@
     "src/preload/*.d.ts",
     "src/common/**/*",
     "src/type/**/*", 
-    "src/index.d.ts",
-    "src/type",
+    "src/demo/**/*", 
+    "src/index.d.ts"
   ],
   "compilerOptions": {
     "composite": true,
@@ -22,6 +22,9 @@
       ],
       "@type/*": [
         "src/type/*"
+      ],
+      "@demo/*": [
+        "src/demo/*"
       ]
     }
   }

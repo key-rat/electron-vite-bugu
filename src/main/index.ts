@@ -4,11 +4,6 @@ import { windowService } from './Service/WindowService'
 import { WindowType } from '@type/window/windowService'
 import { listener } from './listener'
 
-// mainWindow.webContents.setWindowOpenHandler((details) => {
-//   shell.openExternal(details.url)
-//   return { action: 'deny' }
-// })
-
 app.whenReady().then(() => {
   electronApp.setAppUserModelId('com.electron')
 

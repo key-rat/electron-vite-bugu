@@ -1,6 +1,6 @@
 import { IWindowOperationsItem } from '@common/commMethod/ipc/windowIpc'
-import { BaseIpcRequest } from '@type/commMethod/ipc/BaseIpcRequset'
 import { IpcPayload } from '@type/ipc/param/payload'
+import { BaseIpcRequest } from '@type/ipc/param/requset'
 import { IpcTargetWindowType } from '@type/ipc/param/target'
 
 // 发送窗口操作请求的辅助函数

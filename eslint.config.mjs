@@ -1,8 +1,16 @@
+import fs from 'node:fs'
 import tseslint from '@electron-toolkit/eslint-config-ts'
 import eslintConfigPrettier from '@electron-toolkit/eslint-config-prettier'
 import eslintPluginVue from 'eslint-plugin-vue'
 import vueParser from 'vue-eslint-parser'
-
+// 读取自动生成的 globals
+let autoImportGlobals = {}
+try {
+  const autoImport = JSON.parse(fs.readFileSync('./.eslintrc-auto-import.json', 'utf8'))
+  autoImportGlobals = autoImport.globals ?? {}
+} catch {
+  // 忽略错误，首次运行可能未生成
+}
 export default tseslint.config(
   { ignores: ['**/node_modules', '**/dist', '**/out'] },
   tseslint.configs.recommended,
@@ -17,7 +25,8 @@ export default tseslint.config(
         },
         extraFileExtensions: ['.vue'],
         parser: tseslint.parser
-      }
+      },
+      globals: autoImportGlobals // ✅ 添加自动导入的 globals
     }
   },
   {
